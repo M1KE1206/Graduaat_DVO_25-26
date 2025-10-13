@@ -422,7 +422,7 @@
 
 
     .portfolio{
-    background: var(--bg-color); /* Gebruik de achtergrondkleur van de History sectie */
+    background: var(--second-bg-color); /* Gebruik de achtergrondkleur van de History sectie */
     }
     .portfolio h2{
         margin-bottom: 5rem;
@@ -430,8 +430,11 @@
     }
     .portfolio-container{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsief grid */
+        grid-template-columns: repeat(3, 1fr); /* Standaard 3 kolommen */
         gap: 3.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-items: center;
     }
     .portfolio-box{
         position: relative;
@@ -501,7 +504,6 @@
 
     .skills{
         padding: 100px 15px;
-        background: var(--second-bg-color);
         
     }
     .skills h2{
@@ -513,7 +515,7 @@
 
     .container{
         padding: 75px 90px;
-        background-color: var(--second-bg-color);
+        background-color: var(--bg-color);
     }
     .skill-container{
         display: flex;
@@ -635,7 +637,7 @@
 
     .kenmerken{
         padding: 100px 15px;
-        background: var(--bg-color);
+        background: var(--second-bg-color);
     }
 
     .kenmerken-bars{
@@ -735,7 +737,7 @@
 
 
 .contact{
-    background-color: var(--second-bg-color);
+    background-color: var(--bg-color);
 }
 .contact h2{
     margin-bottom: 3rem;
@@ -878,6 +880,10 @@
     .footer{
         padding: 2rem 3%;
     }
+    .portfolio-container{
+        grid-template-columns: repeat(2, 1fr); /* 2 kolommen op tablets */
+        grid-template-rows: auto; /* Auto rows op tablets */
+    }
 }
 
 @media(max-width:895px){
@@ -943,6 +949,7 @@
 
     .portfolio-container{
             grid-template-columns: 1fr; /* 1 kolom op mobiel */
+            grid-template-rows: auto; /* Auto rows op mobiel */
         }
 }
 
