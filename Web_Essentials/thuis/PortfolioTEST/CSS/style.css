@@ -15,6 +15,16 @@
     --main-color: #008a57;
     }
 
+    /* ========== SCROLL SPY ENHANCEMENTS ========== */
+    html {
+        scroll-padding-top: 80px; /* Compenseert voor fixed header */
+    }
+
+    /* Betere scroll animatie voor alle elementen */
+    * {
+        scroll-behavior: smooth;
+    }
+
     html{
         font-size: 60%;
         overflow-x: hidden;
@@ -59,13 +69,44 @@
         color: var(--text-color);
         margin-left: 4rem;
         font-weight: 500;
-        transition: 0.3s ease;
+        transition: all 0.3s ease;
         border-bottom: 3px solid transparent;
+        position: relative;
+        padding: 0.5rem 0;
     }
 
-    .navbar a:hover,.navbar a:focus,.navbar a:active{
-    color: var(--main-color);
-    border-bottom: 3px solid var(--main-color);
+    .navbar a:hover,.navbar a:focus{
+        color: var(--main-color);
+        border-bottom: 3px solid var(--main-color);
+    }
+
+    /* Scroll Spy Active State - Hogere specificiteit */
+    .navbar a.active{
+        color: var(--main-color) !important;
+        border-bottom: 3px solid var(--main-color) !important;
+        text-shadow: 0 0 10px var(--main-color);
+        transform: translateY(-2px);
+    }
+
+    /* Smooth indicator effect */
+    .navbar a::before {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--main-color);
+        transition: width 0.3s ease;
+    }
+
+    .navbar a:hover::before {
+        width: 100%;
+    }
+
+    .navbar a.active::before {
+        width: 100%;
+        box-shadow: 0 0 8px var(--main-color);
     }
 
     #menu-icon{
